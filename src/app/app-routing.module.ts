@@ -10,6 +10,8 @@ const routes: Routes = [
 
   {
     path: 'auth',
+    // Con este guard, me permite activar el estado de volver al login
+    // para salir de la app
     canActivate:[isNotAuthenticatedGuard],
     loadChildren:()=> import('./auth/auth.module').then(m=>m.AuthModule),
   },
