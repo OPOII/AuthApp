@@ -22,7 +22,9 @@ export class AuthService {
   // Así nadie va a cambiar los estados
   public currentUser=computed(()=>this._currenUser());
   public authStatus=computed(()=>this._authStatus());
-  constructor() { }
+  constructor() {
+    this.checkAuthStatus().subscribe();
+  }
 
   private setAuthentication(user:User,token:string):boolean{
     this._currenUser.set(user);
